@@ -7,8 +7,8 @@ describe('ToDo App', function() {
   describe("ToDo list", function() {
     it('should display list of items', function() {
       browser().navigateTo('../../app/index.html');
-      expect(repeater('li').count()).toBe(3);
-      expect(element('li:first').text()).toMatch(/HTML5 Boilerplate/);
+      expect(repeater('tr').count()).toBe(4);
+      expect(element('tr:nth-child(1)').text()).toMatch(/HTML5 Boilerplate/);
     });
   });
 
@@ -16,18 +16,18 @@ describe('ToDo App', function() {
     browser().navigateTo('../../app/index.html');
     input('item').enter("New item");
     element('button:first').click();
-    expect(repeater('li').count()).toBe(4);
+    expect(repeater('tr').count()).toBe(5);
   });
 
   it('should remove a last item', function() {
     browser().navigateTo('../../app/index.html');
     element('button:last').click();
-    expect(repeater('li').count()).toBe(2);
+    expect(repeater('tr').count()).toBe(3);
   });
 
   it("should find an item", function() {
     browser().navigateTo('../../app/index.html');
     input("query").enter("karma");
-    expect(repeater("li").count()).toBe(1);
+    expect(repeater('tr').count()).toBe(2);
   });
 });

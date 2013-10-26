@@ -20,8 +20,6 @@ module.exports = function(config){
       '/': 'http://localhost:8000/'
     },
 
-    urlRoot: '__karma__',
-
     plugins : [
             'karma-junit-reporter',
             'karma-chrome-launcher',

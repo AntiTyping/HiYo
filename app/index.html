@@ -26,6 +26,23 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">ToDo</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+            </ul>
+            <form class="navbar-form pull-right">
+              <input ng-model="query" class="search-query" placeholder="Search">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="container" ng-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

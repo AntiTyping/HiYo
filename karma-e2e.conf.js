@@ -28,6 +28,11 @@ module.exports = function(config) {
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: false,
 
+    proxies : {
+      '/': 'http://localhost:9000/'
+    },
+
+
 
     // Start these browsers, currently available:
     // - Chrome
