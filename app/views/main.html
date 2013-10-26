@@ -1,0 +1,14 @@
+<div class="hero-unit">
+  <h1>'Allo, 'Allo!</h1>
+  <p>You now have</p>
+  <input ng-model="query">
+  <input ng-model="item">
+<button ng-click="awesomeThings.push(item)">Add</button>
+  <ul>
+      <li ng-repeat="thing in awesomeThings | filter:query">
+      {{thing}}{{$index}}<button ng-click="awesomeThings.splice($index, 1)">Remove</button>
+      </li>
+  </ul>
+  <p>installed.</p>
+  <h3>Enjoy coding! - Yeoman</h3>
+</div>
