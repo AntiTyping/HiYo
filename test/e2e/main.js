@@ -91,4 +91,11 @@ describe('ToDo App', function() {
       });
     });
   });
+
+  describe("Tags", function() {
+    it("should display tags", function() {
+      browser().navigateTo('/proxy/');
+      expect(element("span.tags:first").text()).toMatch(/high/);
+    });
+  });
 });

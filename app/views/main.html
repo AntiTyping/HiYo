@@ -36,7 +36,10 @@
               <tbody>
                 <tr ng-repeat="thing in awesomeThings | filter:query" class="item">
                   <td>{{$index + 1}}</td>
-                  <td>{{thing}}</td>
+                  <td>
+                    {{thing.name}}
+                    <span class="tags label label-info">{{thing.tags}}</span>
+                </td>
                   <td><button ng-click="awesomeThings.splice($index, 1)" class="btn btn-danger">Remove</button></td>
                 </tr>
               </tbody>
