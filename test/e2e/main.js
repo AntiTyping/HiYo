@@ -34,10 +34,10 @@ describe('ToDo App', function() {
       expect(input('item.name').val()).toEqual('');
     });
 
-    it('should set tags to high', function() {
+    it('should set priority to high', function() {
       input('item.name').enter("New item");
       element('button.js-add').click();
-      expect(input('item.tags').val()).toEqual('high');
+      expect(input('item.priority').val()).toEqual('high');
     });
   });
 
@@ -72,9 +72,9 @@ describe('ToDo App', function() {
     });
   });
 
-  describe("Tags", function() {
-    it("should display tags", function() {
-      expect(element("span.tags:first").text()).toMatch(/high/);
+  describe("Priority", function() {
+    it("should display priority", function() {
+      expect(element("span.priority:first").text()).toMatch(/high/);
     });
   });
 
@@ -86,7 +86,7 @@ describe('ToDo App', function() {
       });
     });
 
-    describe("Tags", function() {
+    describe("Priority", function() {
       describe("filters", function() {
         describe("high", function() {
           it("should display tagged items only", function() {

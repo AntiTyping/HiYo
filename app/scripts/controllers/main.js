@@ -3,8 +3,8 @@
 angular.module('HiYoApp')
   .controller('MainCtrl', function ($scope) {
     $scope.awesomeThings = [
-      {name: 'HTML5 Boilerplate', tags: "high"},
-      {name: 'AngularJS', tags: "low"},
-      {name: 'Karma', tags: "medium"}
+      {name: 'HTML5 Boilerplate', priority: "high"},
+      {name: 'AngularJS', priority: "low"},
+      {name: 'Karma', priority: "medium"}
     ];
   });
