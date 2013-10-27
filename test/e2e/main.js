@@ -15,23 +15,30 @@ describe('ToDo App', function() {
   describe("Add item button", function() {
     it('should have placeholder text', function() {
       browser().navigateTo('/proxy/');
-      expect(element('[ng\\:model="item"]').attr('placeholder')).toEqual("Add new item here");
+      expect(element('[ng\\:model="item.name"]').attr('placeholder')).toEqual("Add new item here");
     });
   });
 
   describe("Add item button", function() {
     it('should add a new item', function() {
       browser().navigateTo('/proxy/');
-      input('item').enter("New item");
+      input('item.name').enter("New item");
       element('button.js-add').click();
-      expect(repeater('tr').count()).toBe(5);
+      expect(element('tr:last').text()).toMatch(/New item/);
     });
 
     it('should clear the new item box', function() {
       browser().navigateTo('/proxy/');
-      input('item').enter("New item");
+      input('item.name').enter("New item");
       element('button.js-add').click();
-      expect(input('item').val()).toEqual('');
+      expect(input('item.name').val()).toEqual('');
+    });
+
+    it('should set tags to high', function() {
+      browser().navigateTo('/proxy/');
+      input('item.name').enter("New item");
+      element('button.js-add').click();
+      expect(input('item.tags').val()).toEqual('high');
     });
   });
 
