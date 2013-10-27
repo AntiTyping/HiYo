@@ -15,7 +15,7 @@ describe('ToDo App', function() {
   it('should add a new item', function() {
     browser().navigateTo('/proxy/');
     input('item').enter("New item");
-    element('button:first').click();
+    element('button.js-add').click();
     expect(repeater('tr').count()).toBe(5);
   });
 
