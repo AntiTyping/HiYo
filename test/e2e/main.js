@@ -12,11 +12,27 @@ describe('ToDo App', function() {
     });
   });
 
-  it('should add a new item', function() {
-    browser().navigateTo('/proxy/');
-    input('item').enter("New item");
-    element('button.js-add').click();
-    expect(repeater('tr').count()).toBe(5);
+  describe("Add item button", function() {
+    it('should have placeholder text', function() {
+      browser().navigateTo('/proxy/');
+      expect(element('[ng\\:model="item"]').attr('placeholder')).toEqual("Add new item here");
+    });
+  });
+
+  describe("Add item button", function() {
+    it('should add a new item', function() {
+      browser().navigateTo('/proxy/');
+      input('item').enter("New item");
+      element('button.js-add').click();
+      expect(repeater('tr').count()).toBe(5);
+    });
+
+    it('should clear the new item box', function() {
+      browser().navigateTo('/proxy/');
+      input('item').enter("New item");
+      element('button.js-add').click();
+      expect(input('item').val()).toEqual('');
+    });
   });
 
   it('should remove a last item', function() {

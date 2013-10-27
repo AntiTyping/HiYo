@@ -19,8 +19,8 @@
 
 <div class="well">
 <div class="input-append">
-  <input class="span7" ng-model="item" id="appendedInputButton" type="text">
-  <button ng-click="awesomeThings.push(item)" class="btn btn-primary js-add" type="button">Add</button>
+  <input class="span7" ng-model="item" id="appendedInputButton" type="text" placeholder="Add new item here">
+  <button ng-click="awesomeThings.push(item); item = ''" class="btn btn-primary js-add" type="button">Add</button>
 </div>
 </div>
 
