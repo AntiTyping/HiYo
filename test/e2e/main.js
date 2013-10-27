@@ -63,4 +63,32 @@ describe('ToDo App', function() {
       expect(input("query").val()).toEqual('');
     });
   });
+
+  describe("Navigation", function() {
+    describe("Home", function() {
+      it("should navigate to home page", function() {
+        browser().navigateTo('/proxy/');
+        element("a:contains('Home')").click();
+        expect(browser().location().url()).toBe("/");
+      });
+
+      it("should display about page", function() {
+        browser().navigateTo('/proxy/#/');
+        expect(element(".js-main").text()).toMatch(/Collect/);
+      });
+    });
+
+    describe("About", function() {
+      it("should navigate to about page", function() {
+        browser().navigateTo('/proxy/');
+        element("a:contains('About')").click();
+        expect(browser().location().url()).toBe("/about");
+      });
+
+      it("should display about page", function() {
+        browser().navigateTo('/proxy/#/about');
+        expect(element(".js-main").text()).toMatch(/About/);
+      });
+    });
+  });
 });
