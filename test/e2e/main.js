@@ -41,28 +41,6 @@ describe('ToDo App', function() {
     expect(repeater('tr').count()).toBe(3);
   });
 
-  it("should find an item", function() {
-    browser().navigateTo('/proxy/');
-    input("query").enter("karma");
-    expect(repeater('tr').count()).toBe(2);
-  });
-
-  describe("clear search button", function() {
-    it("should show all the tasks", function() {
-      browser().navigateTo('/proxy/');
-      input("query").enter("karma");
-      expect(repeater('tr').count()).toBe(2);
-      element(".js-clear").click();
-      expect(repeater('tr').count()).toBe(4);
-    });
-
-    it("should show clear the search box", function() {
-      browser().navigateTo('/proxy/');
-      input("query").enter("karma");
-      element(".js-clear").click();
-      expect(input("query").val()).toEqual('');
-    });
-  });
 
   describe("Navigation", function() {
     describe("Home", function() {
@@ -74,7 +52,7 @@ describe('ToDo App', function() {
 
       it("should display about page", function() {
         browser().navigateTo('/proxy/#/');
-        expect(element(".js-main").text()).toMatch(/Collect/);
+        expect(element(".js-main").text()).toMatch(/Task/);
       });
     });
 
@@ -96,6 +74,69 @@ describe('ToDo App', function() {
     it("should display tags", function() {
       browser().navigateTo('/proxy/');
       expect(element("span.tags:first").text()).toMatch(/high/);
+    });
+  });
+
+  describe("Filters", function() {
+    describe("Keywords", function() {
+      it("should find an item", function() {
+        browser().navigateTo('/proxy/');
+        input("query.name").enter("karma");
+        expect(repeater('tr').count()).toBe(2);
+      });
+    });
+
+    describe("Tags", function() {
+      describe("filters", function() {
+        describe("high", function() {
+          it("should display tagged items only", function() {
+            browser().navigateTo('/proxy/');
+            element("a.tagFilter:contains('high')").click();
+            expect(repeater('tr').count()).toBe(2);
+          });
+        });
+
+        describe("medium ", function() {
+          it("should display tagged items only", function() {
+            browser().navigateTo('/proxy/');
+            element("a.tagFilter:contains('medium')").click();
+            expect(repeater('tr').count()).toBe(2);
+          });
+        });
+
+        describe("low", function() {
+          it("should display tagged items only", function() {
+            browser().navigateTo('/proxy/');
+            element("a.tagFilter:contains('low')").click();
+            expect(repeater('tr').count()).toBe(2);
+          });
+        });
+
+        describe("All", function() {
+          it("should display all items" , function() {
+            browser().navigateTo('/proxy/');
+            element("a.tagFilter:contains('All')").click();
+            expect(repeater('tr').count()).toBe(4);
+          });
+        });
+      });
+    });
+
+    describe("clear search button", function() {
+      it("should show all the tasks", function() {
+        browser().navigateTo('/proxy/');
+        input("query.name").enter("karma");
+        expect(repeater('tr').count()).toBe(2);
+        element(".js-clear").click();
+        expect(repeater('tr').count()).toBe(4);
+      });
+
+      it("should clear the search box", function() {
+        browser().navigateTo('/proxy/');
+        input("query.name").enter("karma");
+        element(".js-clear").click();
+        expect(input("query.name").val()).toEqual('');
+      });
     });
   });
 });

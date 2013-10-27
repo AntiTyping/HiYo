@@ -37,8 +37,8 @@
             </ul>
             <form class="navbar-form form-search pull-right">
               <div class="input-append">
-                <input ng-model="query" type="text" class="span2 search-query" placeholder="Search" >
-                <button ng-click="query = ''" type="submit" class="btn js-clear">Clear</button>
+                <input ng-init="query.tags = ''" ng-model="query.name" type="text" class="span2 search-query" placeholder="Search" >
+                <button ng-click="query.name =''" class="btn js-clear">Clear</button>
               </div>
             </form>
           </div>
