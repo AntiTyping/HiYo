@@ -316,6 +316,10 @@ module.exports = function (grunt) {
       unit: {
         configFile: 'karma.conf.js',
         singleRun: true
+      },
+      e2e: {
+        configFile: 'config/karma-e2e.conf.js',
+        singleRun: true
       }
     },
     cdnify: {
@@ -366,6 +370,16 @@ module.exports = function (grunt) {
     'connect:test',
     'karma'
   ]);
+
+  grunt.registerTask('e2e', function (target) {
+    grunt.task.run([
+      'clean:server',
+      'concurrent:server',
+      'autoprefixer',
+      'connect:livereload',
+      'karma:e2e'
+    ]);
+  });
 
   grunt.registerTask('build', [
     'clean:dist',
