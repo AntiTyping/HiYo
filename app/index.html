@@ -35,8 +35,11 @@
               <li class="active"><a href="#">Home</a></li>
               <li><a href="#about">About</a></li>
             </ul>
-            <form class="navbar-form pull-right">
-              <input ng-model="query" class="search-query" placeholder="Search">
+            <form class="navbar-form form-search pull-right">
+              <div class="input-append">
+                <input ng-model="query" type="text" class="span2 search-query" placeholder="Search" >
+                <button ng-click="query = ''" type="submit" class="btn js-clear">Clear</button>
+              </div>
             </form>
           </div>
         </div>

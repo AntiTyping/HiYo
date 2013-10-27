@@ -30,4 +30,21 @@ describe('ToDo App', function() {
     input("query").enter("karma");
     expect(repeater('tr').count()).toBe(2);
   });
+
+  describe("clear search button", function() {
+    it("should show all the tasks", function() {
+      browser().navigateTo('/proxy/');
+      input("query").enter("karma");
+      expect(repeater('tr').count()).toBe(2);
+      element(".js-clear").click();
+      expect(repeater('tr').count()).toBe(4);
+    });
+
+    it("should show clear the search box", function() {
+      browser().navigateTo('/proxy/');
+      input("query").enter("karma");
+      element(".js-clear").click();
+      expect(input("query").val()).toEqual('');
+    });
+  });
 });
