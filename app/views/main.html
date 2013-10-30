@@ -22,7 +22,7 @@
           <option value="low">Low</option>
         </select>
         <input class="span6" ng-model="item.name" id="appendedInputButton" type="text" placeholder="Add new item here">
-        <button ng-click="awesomeThings.push({name: item.name, priority: item.priority}); item.name = ''" class="btn btn-primary js-add" type="button">Add</button>
+        <button ng-click="add(item); item.name = ''" class="btn btn-primary js-add" type="button">Add</button>
       </div>
     </div>
 
@@ -40,10 +40,10 @@
             <td>{{$index + 1}}</td>
             <td>
               {{thing.name}}
-              <span class="priority label label-info">{{thing.priority}}</span>
+              <span class="priority label">{{thing.priority}}</span>
             </td>
             <td>
-              <button ng-click="awesomeThings.splice($index, 1)" class="btn btn-primary">Done</button>
+              <button ng-click="remove($index, thing)" class="btn btn-success js-done">Done</button>
             </td>
           </tr>
         </tbody>

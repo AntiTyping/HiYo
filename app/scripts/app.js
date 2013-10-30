@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('HiYoApp', [])
+angular.module('HiYoApp', ['ngResource'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
