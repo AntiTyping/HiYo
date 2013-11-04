@@ -45,6 +45,13 @@ describe('ToDo App', function() {
       input('item.name').enter("New item");
       element('button.js-add').click();
       expect(element('tr:last').text()).toMatch(/New item/);
+      expect(repeater('tr.item').count()).toBe(4);
+    });
+
+    it('should display validation when adding an invalid new item', function() {
+      input('item.name').enter("");
+      element('button.js-add').click();
+      expect(repeater('tr.item').count()).toBe(3);
     });
 
     it('should clear the new item box', function() {
