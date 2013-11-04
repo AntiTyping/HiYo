@@ -156,4 +156,9 @@ describe('ToDo App', function() {
       });
     });
   });
+
+  describe("Refresh", function() {
+    it("should reload the list of items", function() {
+    });
+  });
 });
