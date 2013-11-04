@@ -41,7 +41,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="thing in filtered = (awesomeThings | filter:query)" class="item">
+          <tr ng-repeat="thing in filtered = (tasks | filter:query)" class="item">
             <td>{{$index + 1}}</td>
             <td>
               {{thing.name}}
