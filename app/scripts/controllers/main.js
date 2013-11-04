@@ -12,14 +12,14 @@ angular.module('HiYoApp')
       $scope.awesomeThings.push(task);
     };
     $scope.remove = function(index, item) {
-      var id = item.url.replace("http://localhost:8888/tasks/", '');
+      var id = item.url.replace("http://localhost:3000/tasks/", '');
       item.$remove({id: id});
       $scope.awesomeThings.splice(index, 1);
     };
     $
   }).factory('Task', ['$resource',
   function($resource){
-    return $resource('http://localhost\\:8888/:path/:id', {}, {
+    return $resource('http://localhost\\:3000/:path/:id', {}, {
       query: {method:'GET', params:{path:'tasks.json'}, isArray:true},
       get: {method:'GET', params:{path:''}},
       save: {method:'POST', params:{path:'tasks.json'}},
