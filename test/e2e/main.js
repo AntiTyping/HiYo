@@ -7,12 +7,9 @@ describe('ToDo App', function() {
   beforeEach(function() {
     browser().navigateTo('/proxy/');
       element('table').query(function(table, done) {
-        // console.log(">>>");
         var children = table.children();
         if(children.length > 1) {
-          // console.log("2>>>");
           var elements = table.find('button.js-done');
-          // console.log(elements.length);
           elements.click();
         };
         done();
