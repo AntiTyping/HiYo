@@ -75,7 +75,7 @@ describe('ToDo App', function() {
       });
 
       it("should display about page", function() {
-        expect(element(".js-main").text()).toMatch(/Task/);
+        expect(element(".js-main").text()).toMatch(/task/);
       });
     });
 
@@ -156,6 +156,12 @@ describe('ToDo App', function() {
 
   describe("Refresh", function() {
     it("should reload the list of items", function() {
+    });
+  });
+
+  describe("Task counter", function() {
+    it("should display number of visible tasks", function() {
+      expect(element(".js-task-counter").text()).toEqual("3 tasks");
     });
   });
 });
