@@ -3,11 +3,13 @@ module.exports = function(config){
     basePath : '../',
 
     files : [
-      'app/lib/angular/angular.js',
-      'app/lib/angular/angular-*.js',
-      'test/lib/angular/angular-mocks.js',
-      'app/js/**/*.js',
-      'test/unit/**/*.js'
+      'app/bower_components/angular/angular.js',
+      'app/bower_components/angular-cookies/angular-cookies.js',
+      'app/bower_components/angular-mocks/angular-mocks.js',
+      'app/bower_components/angular-resource/angular-resource.js',
+      'app/bower_components/angular-sanitize/angular-sanitize.js',
+      'app/scripts/**/*.js',
+      'test/spec/**/*.js'
     ],
 
     autoWatch : true,
@@ -20,7 +22,7 @@ module.exports = function(config){
             'karma-junit-reporter',
             'karma-chrome-launcher',
             'karma-firefox-launcher',
-            'karma-jasmine'       
+            'karma-jasmine'
             ],
 
     junitReporter : {
