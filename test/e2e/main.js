@@ -20,18 +20,14 @@ describe('ToDo App', function() {
       input('item.name').enter("Medium priority item");
       select('item.priority').option("medium");
       element('button.js-add').click();
+
       input('item.name').enter("Low priority item");
       select('item.priority').option("low");
       element('button.js-add').click();
+
       input('item.name').enter("High priority item");
       select('item.priority').option("high");
       element('button.js-add').click();
-      // input('item.name').enter("Medium priotiry item");
-      // input('item.priority').enter("medium");
-      // element('button.js-add').click();
-      // input('item.name').enter("Low priority item");
-      // input('item.priority').enter("low");
-      // element('button.js-add').click();
   });
 
   describe("ToDo list", function() {
@@ -68,7 +64,8 @@ describe('ToDo App', function() {
   });
 
   it('should remove a last item', function() {
-    element('button:last').click();
+    expect(repeater('tr.item').count()).toBe(3);
+    element('button.js-done:last').click();
     expect(repeater('tr.item').count()).toBe(2);
   });
 

@@ -2,12 +2,8 @@
 
 angular.module('HiYoApp')
   .controller('MainCtrl', function ($scope, Task, $resource) {
-    // $scope.awesomeThings = [
-      // {name: 'HTML5 Boilerplate', priority: "high"},
-      // {name: 'AngularJS', priority: "low"},
-      // {name: 'Karma', priority: "medium"}
-    // ];
     $scope.awesomeThings = Task.query();
+
     $scope.add = function(item) {
       var task = new Task();
       task.name = item.name;
